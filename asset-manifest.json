@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/SFU-Course-Planner/static/css/main.f5f64a83.css",
+    "main.js": "/SFU-Course-Planner/static/js/main.e375d918.js",
+    "static/js/787.cda612ba.chunk.js": "/SFU-Course-Planner/static/js/787.cda612ba.chunk.js",
+    "static/media/background.jpeg": "/SFU-Course-Planner/static/media/background.6f83325d799b40bccfb9.jpeg",
+    "static/media/sfu4.png": "/SFU-Course-Planner/static/media/sfu4.e61dc26d34317cbfbcde.png",
+    "index.html": "/SFU-Course-Planner/index.html",
+    "main.f5f64a83.css.map": "/SFU-Course-Planner/static/css/main.f5f64a83.css.map",
+    "main.e375d918.js.map": "/SFU-Course-Planner/static/js/main.e375d918.js.map",
+    "787.cda612ba.chunk.js.map": "/SFU-Course-Planner/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f5f64a83.css",
+    "static/js/main.e375d918.js"
+  ]
+}
