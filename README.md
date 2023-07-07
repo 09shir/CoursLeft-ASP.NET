@@ -8,16 +8,11 @@ An advanced course planner web application that enables SFU students to plan ahe
 
 # Usage
 
-To use this template to start your own project:
+Following the following steps to run the application:
 
 ## Backend Setup
       
-Inside Backend/Backend directory, build and run backend REST API through commands:
-
-```bash
-dotnet build
-dotnet run
-```
+No backend setup is necessary. Dotnet server is deployed on cloud already!
     
 ## Frontend Setup
 
