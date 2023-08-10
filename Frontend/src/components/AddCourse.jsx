@@ -16,6 +16,15 @@ const AddCourse = () => {
     const [isLoading, setLoading] = useState(true)
     const [coursesList2, setCoursesList2] = useState(coursesList)
 
+    const [availabilitySection, setAvailabilitySection] = useState({
+        availableTerm: [],
+    })
+
+    const [showPredictButton, setShowPredictButton] = useState(false)
+    const [showAvailability, setShowAvailability] = useState(false)
+    const [maxWorkLoadWarning, setMaxWorkLoadWarning] = useState(false)
+    const [repeatWarning, setRepeatWarning] = useState(false)
+
     useEffect(() => {
         axios
           .get("/api/terms/")
@@ -42,6 +51,12 @@ const AddCourse = () => {
         setCoursesList2(coursesList.filter(course => 
             (course.toLowerCase()).includes(e.target.value.toLowerCase())
         ))
+        if (e.target.value.length > 0){
+            setShowPredictButton(true)
+        }
+        else{
+            setShowPredictButton(false)
+        }
     }
 
     const handleCourseTermInputChange = (e) => {
@@ -54,9 +69,6 @@ const AddCourse = () => {
 	    }));
     }
 
-    const [maxWorkLoadWarning, setMaxWorkLoadWarning] = useState(false)
-    const [repeatWarning, setRepeatWarning] = useState(false)
-
     const submit = () => {
 
         setShowAvailability(false)
@@ -65,7 +77,7 @@ const AddCourse = () => {
 
         const ret = {
             name: courseName.toUpperCase(),
-            idterm: courseTerm
+            term: courseTerm
         }
         // check if there are 6 or more courses in selected term
         // check if course about to add repeats with already selected course
@@ -75,7 +87,7 @@ const AddCourse = () => {
             let count = 0
             let repeat = false
             res.data.map(course => {
-                if (course.idTerm == ret.idterm){
+                if (course.term == ret.term){
                     count++;
                     if (course.name == ret.name){
                         repeat = true
@@ -99,11 +111,6 @@ const AddCourse = () => {
             }
           })
     }
-
-    const [showAvailability, setShowAvailability] = useState(false)
-    const [availabilitySection, setAvailabilitySection] = useState({
-        availableTerm: [],
-    })
     
     const checkAvailability = async () => {
 
@@ -178,7 +185,7 @@ const AddCourse = () => {
             <br></br>
             <Button className="btn btn-primary" onClick={submit}> Add </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button className="btn btn-primary" onClick={checkAvailability}> Predict Availability </Button>
+            {showPredictButton ? <Button className="btn btn-primary" onClick={checkAvailability}> Predict Availability </Button> : null}
             <br></br><br></br>
             {showAvailability ? <h5>{
                 <>
