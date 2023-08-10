@@ -77,7 +77,7 @@ const AddCourse = () => {
 
         const ret = {
             name: courseName.toUpperCase(),
-            term: courseTerm
+            idterm: courseTerm
         }
         // check if there are 6 or more courses in selected term
         // check if course about to add repeats with already selected course
@@ -87,7 +87,7 @@ const AddCourse = () => {
             let count = 0
             let repeat = false
             res.data.map(course => {
-                if (course.term == ret.term){
+                if (course.idTerm == ret.idTerm){
                     count++;
                     if (course.name == ret.name){
                         repeat = true
